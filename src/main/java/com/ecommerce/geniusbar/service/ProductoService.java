@@ -2,6 +2,8 @@ package com.ecommerce.geniusbar.service;
 
 import com.ecommerce.geniusbar.model.Producto;
 
+
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +17,9 @@ public interface ProductoService {
 
     List<Producto> buscaProductosPorNombre(String nombre);
     List<Producto> buscarProductosPorTextoEnNombres(String texto);
+    List<Producto> buscarProductosPorCondicion(String condicionProducto);
+    List<Producto> buscarProductosPorCategoria(String categoriaProducto);
+    List<Producto> buscarProductosPorColor(String colorProducto);
+    Optional<Producto> buscarProductoPoridInterno(String idInterno);
+    List<Producto> buscarProductosPorPrecioMayor(BigDecimal precioProducto);
 }

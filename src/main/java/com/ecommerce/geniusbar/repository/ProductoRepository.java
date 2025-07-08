@@ -24,9 +24,21 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>{
     // Buscar productos q contengan una palabra (Like '%texto%')
     List<Producto> findByNombreProductoContaining(String texto);
 
+    // Buscar productos por condicion y categoria
+    List<Producto> findByCondicionProducto(String condicionProducto);
+    
+    // Buscar productos por categoria
+    List<Producto> findByCategoriaProducto(String categoriaProducto);
+
+    // Buscar productos por color
+    List<Producto> findByColorProducto(String colorProducto);
+    
+    // Buscar productos por id interno
+    Optional<Producto> findByIdInterno(String idInterno);
+
     // Buscar productos por precio mayor a un valor
     List<Producto> findByPrecioProductoGreaterThan(BigDecimal precioProducto);
-
+    
     // Buscar productos por precio entre dos valores
     List<Producto> findByPrecioProductoBetween(BigDecimal min, BigDecimal max);
 
@@ -39,12 +51,4 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>{
     // Buscar productos por nombre y precio mayor a un valor
     List<Producto> findByNombreProductoAndPrecioProductoGreaterThan(String nombreProducto, BigDecimal precioProducto);
     
-    // Buscar productos por condicion y categoria
-    List<Producto> findByCondicionProducto(String condicionProducto);
-    
-    // Buscar productos por categoria
-    List<Producto> findByCategoriaProducto(String categoriaProducto);
-    
-    // Buscar productos por id interno
-    Optional<Producto> findByIdInterno(String idInterno);
 }

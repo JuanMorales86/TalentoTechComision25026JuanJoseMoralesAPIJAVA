@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.ecommerce.geniusbar.model.Producto;
 import com.ecommerce.geniusbar.repository.ProductoRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,6 +67,26 @@ public class ProductoServiceImpl implements ProductoService  {
 
     public List<Producto> buscarProductosPorTextoEnNombres(String texto){
         return productoRepository.findByNombreProductoContaining(texto);
+    }
+
+    public List<Producto> buscarProductosPorCondicion(String condicionProducto){
+        return productoRepository.findByCondicionProducto(condicionProducto);
+    }
+
+    public List<Producto> buscarProductosPorCategoria(String categoriaProducto){
+        return productoRepository.findByCategoriaProducto(categoriaProducto);
+    }
+
+    public List<Producto> buscarProductosPorColor(String colorProducto){
+        return productoRepository.findByColorProducto(colorProducto);
+    }
+
+    public Optional<Producto> buscarProductoPoridInterno(String idInterno){
+        return productoRepository.findByIdInterno(idInterno);
+    }
+
+    public List<Producto> buscarProductosPorPrecioMayor(BigDecimal precioProducto){
+        return productoRepository.findByPrecioProductoGreaterThan(precioProducto);
     }
 
 }

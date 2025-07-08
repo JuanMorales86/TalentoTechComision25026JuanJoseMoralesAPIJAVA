@@ -1,6 +1,8 @@
 package com.ecommerce.geniusbar.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -71,6 +73,31 @@ public class GeniusbarController {
     @GetMapping("/busqueda/nombre/like/{nombreLike}")
     public List<Producto> buscarPorductoPorNombreLike(@PathVariable String nombreLike) {
         return productoService.buscarProductosPorTextoEnNombres(nombreLike);
+    }
+
+    @GetMapping("/busqueda/condicion/{condicionProducto}")
+    public List<Producto> buscarPorCondicionProducto(@PathVariable String condicionProducto){
+        return productoService.buscarProductosPorCondicion(condicionProducto);
+    }
+
+    @GetMapping("busqueda/categoria/{categoriaProducto}")
+    public List<Producto> buscarPorCategoriaProducto(@PathVariable String categoriaProducto){
+        return productoService.buscarProductosPorCategoria(categoriaProducto);
+    }
+
+    @GetMapping("/busqueda/color/{colorProducto}")
+    public List<Producto> buscarPorColorProducto(@PathVariable String colorProducto){
+        return productoService.buscarProductosPorColor(colorProducto);
+    }
+
+    @GetMapping("/busqueda/idinterno/{idInterno}")
+    public Optional<Producto> buscarPorIdInternoProducto(@PathVariable String idInterno){
+        return productoService.buscarProductoPoridInterno(idInterno);
+    }
+
+    @GetMapping("/busqueda/precio/{precioProducto}")
+    public List<Producto> buscarPorPrecioProducto(@PathVariable BigDecimal precioProducto){
+        return productoService.buscarProductosPorPrecioMayor(precioProducto);
     }
 
 }
