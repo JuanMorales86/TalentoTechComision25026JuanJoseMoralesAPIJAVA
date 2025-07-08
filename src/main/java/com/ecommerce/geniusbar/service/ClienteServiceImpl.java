@@ -60,8 +60,6 @@ public class ClienteServiceImpl implements ClienteService {
         clienteExistente.setTelefono(cliente.getTelefono());
         clienteExistente.setDni(cliente.getDni());
 
-        // IMPORTANTE: NO tocar la lista de pedidos de clienteExistente directamente aquí
-        // Si no se toca la lista de pedidos en clienteExistente, JPA no la considera "desvinculada"
 
         return clienteRepository.save(clienteExistente);
 

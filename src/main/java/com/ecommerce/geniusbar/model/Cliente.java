@@ -113,6 +113,3 @@ public class Cliente {
 
 
 }
-/*
- @JsonManagedReference y @JsonBackReference: Estas anotaciones de Jackson están diseñadas para manejar la serialización de relaciones bidireccionales y evitar bucles infinitos. @JsonManagedReference (en Cliente) indica que esta es la parte "gestionadora" de la relación, mientras que @JsonBackReference (en Pedidos) es la parte "de retorno". Cuando serializas un Cliente, Jackson serializará la lista de Pedidos (si la tuviera). Cuando serializas un Pedido, no serializará completamente el Cliente al que pertenece para evitar el bucle. Por lo tanto, un cliente recién creado no tendrá pedidos asociados para serializar.
- */

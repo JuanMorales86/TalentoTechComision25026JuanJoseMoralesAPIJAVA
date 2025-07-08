@@ -68,7 +68,7 @@ public class PedidoServiceImpl implements PedidoService {
         
         // Si el cliente del pedido que se recibe es nulo, mantenemos el cliente existente.
         // Si se envía un cliente, asumimos que se quiere actualizar la relación.
-        // Aquí podríamos añadir lógica para buscar un nuevo cliente si se envía un id de cliente distinto
+        // Aquí podríamos añadir lógica para buscar un nuevo cliente si se envía un id de cliente distinto (me falta)
         if(pedido.getCliente() != null && pedido.getCliente().getId() !=null){
             Optional<Cliente> nuevoClienteOpcional = clienteService.encontrarCliente(pedido.getCliente().getId());
             if(nuevoClienteOpcional.isPresent()){
